@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 11:12:06 by asolano-          #+#    #+#             */
-/*   Updated: 2022/04/22 12:02:06 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/04/25 10:04:26 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 
 	ss1 = (unsigned char *) s1;
 	ss2 = (unsigned char *) s2;
-
 	while (n > 0)
 	{
 		if (*ss1 != *ss2)

@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 09:06:02 by asolano-          #+#    #+#             */
-/*   Updated: 2022/04/22 12:05:50 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/04/26 12:30:31 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 char	*ft_strdup(const char *s1);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-
-
+char	*ft_strjoin(char const *s1, const char *s2);
+char	*ft_strtrim(char const *s1, const char *s2);
+char	*ft_itoa(int n);
 #endif

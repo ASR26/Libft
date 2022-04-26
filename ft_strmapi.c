@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/22 09:33:01 by asolano-          #+#    #+#             */
-/*   Updated: 2022/04/25 10:07:48 by asolano-         ###   ########.fr       */
+/*   Created: 2022/04/26 13:14:13 by asolano-          #+#    #+#             */
+/*   Updated: 2022/04/26 13:19:42 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*Esta función aloja suficiente memoria para copiar s1, hace la copia y devuelve
- * un puntero al string, si no hay suficiente memoria devuelve 0*/
+/* Esta función aplica la función f dada como parámetro a cada caracter de la 
+ * string s, genera una nueva string con el resultado de usar la función*/
 #include"libft.h"
 
-char	*ft_strdup(const char *s1)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*s2;
-	int		str_length;
 
-	s2 = 0;
-	str_length = ft_strlen(s1) + 1;
-	s2 = malloc(sizeof (char) * str_length);
-	if (str_length == 0)
-		return (0);
-	ft_strlcpy(s2, s1, str_length);
-	return (s2);
 }
