@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 09:17:13 by asolano-          #+#    #+#             */
-/*   Updated: 2022/04/28 12:57:01 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/04/29 13:00:46 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	while (lst)
+	t_list	*next;
+
+	if (lst == 0)
+		return (0);
+	next = lst->next;
+	while (next)
 	{
-		lst = lst->next;
-		if (lst->next == 0)
-			return (lst);
+		lst = next;
+		next = lst->next;
 	}
 	return (lst);
 }

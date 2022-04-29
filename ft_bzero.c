@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 10:22:58 by asolano-          #+#    #+#             */
-/*   Updated: 2022/04/21 12:29:53 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/04/29 12:51:07 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,12 @@
 
 void	ft_bzero(void *str, size_t n)
 {
-	size_t			i;
-	unsigned char	*suc;
+	char	*nstr;
 
-	i = 0;
-	suc = (unsigned char *)str;
-	while (i < n)
+	nstr = (char *) str;
+	while (n > 0)
 	{
-		suc[i] = 0;
-		i++;
+		*nstr++ = 0;
+		n--;
 	}
-	str = suc;
 }

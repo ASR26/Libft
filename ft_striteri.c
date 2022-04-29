@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 10:56:09 by asolano-          #+#    #+#             */
-/*   Updated: 2022/04/28 12:58:43 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/04/29 13:00:52 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	unsigned int	i;
 
-	if (!s || !(*s) || !f)
-		return (0);
 	i = 0;
+	if (!s)
+		return ;
 	while (s[i])
 	{
 		f(i, &s[i]);
-		++i;
+		i++;
 	}
 }
