@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/22 08:54:26 by asolano-          #+#    #+#             */
-/*   Updated: 2022/04/27 10:07:55 by asolano-         ###   ########.fr       */
+/*   Created: 2022/04/29 08:53:05 by asolano-          #+#    #+#             */
+/*   Updated: 2022/04/29 09:05:25 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*Esta función aloja de forma contigua espacio para count objetos que son size 
- * bytes de memoria y devuelve un puntero a la memoria alojada, esta memoria se
- * llena con bytes de valor 0*/
 #include"libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	void	*ptr;
+	t_list	*last;
 
-	ptr = malloc(count * size);
-	if (!ptr)
-		return (0);
-	ft_bzero(ptr, count * size);
-	return (ptr);
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
+	last = ft_lstlast(*lst);
+	last->next = new;
 }

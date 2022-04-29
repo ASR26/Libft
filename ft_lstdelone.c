@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/22 08:54:26 by asolano-          #+#    #+#             */
-/*   Updated: 2022/04/27 10:07:55 by asolano-         ###   ########.fr       */
+/*   Created: 2022/04/29 08:45:33 by asolano-          #+#    #+#             */
+/*   Updated: 2022/04/29 08:50:26 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*Esta función aloja de forma contigua espacio para count objetos que son size 
- * bytes de memoria y devuelve un puntero a la memoria alojada, esta memoria se
- * llena con bytes de valor 0*/
 #include"libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	void	*ptr;
-
-	ptr = malloc(count * size);
-	if (!ptr)
-		return (0);
-	ft_bzero(ptr, count * size);
-	return (ptr);
+	if (!lst || !del)
+		return ;
+	(del)(lst->content);
+	free(lst);
 }

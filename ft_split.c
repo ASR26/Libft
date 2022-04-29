@@ -6,26 +6,13 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 12:54:03 by asolano-          #+#    #+#             */
-/*   Updated: 2022/04/26 10:31:06 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/04/28 12:51:55 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"libft.h"
 
-char **ft_split(char const *s, char c)
-{
-	int 	counter;
-	char	**strs;
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	counter = (ft_counter(s, c)) + 1;
-	
-}
-
-size_t	ft_counter(char const *s, char c)
+size_t	ft_divcounter(char const *s, char c)
 {
 	size_t	i;
 	size_t	counter;
@@ -34,27 +21,58 @@ size_t	ft_counter(char const *s, char c)
 	i = 0;
 	while (s[i])
 	{
-		while(s[i] == c)
+		while (s[i] == c)
 			i++;
-		if(i > 0 && s[i] && s[i - 1] == c)
+		if (i > 0 && s[i] && s[i - 1] == c)
 			counter++;
-		if(s[i])
+		if (s[i])
 			i++;
 	}
 	if (counter == 0 && s[i - 1] == c)
 		return (0);
-	if(s[0] != c)
+	if (s[0] != c)
 		counter++;
 	return (counter);
 }
 
-char	**ft_mal(char **strs, char const *s, char c)
+char	*ft_word_dup(const char *str, int start, int end)
 {
-	size_t	count;
+	char	*word;
 	int		i;
-	int		j;
 
 	i = 0;
-	if(n == 0)
+	word = malloc((end - start + 1) * sizeof (char));
+	while (start < end)
+		word[i++] = str[start++];
+	word[i] = '\0';
+	return (word);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	int		counter;
+	char	**strs;
+	size_t	i;
+	size_t	j;
+
+	if (s)
+		strs = malloc((ft_divcounter(s, c) + 1) * sizeof (char *));
+	if (!s || !strs)
 		return (0);
+	i = 0;
+	j = 0;
+	counter = -1;
+	while (i <= ft_strlen(s))
+	{
+		if (s[i] != c && counter < 0)
+			counter = i;
+		else if ((s[i] == c || i == ft_strlen(s)) && counter >= 0)
+		{
+			strs[j++] = ft_word_dup(s, counter, i);
+			counter = -1;
+		}
+		i++;
+	}
+	strs[j] = 0;
+	return (strs);
 }

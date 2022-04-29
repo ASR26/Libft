@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 10:29:48 by asolano-          #+#    #+#             */
-/*   Updated: 2022/04/21 12:32:21 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/04/27 09:06:54 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void	*ft_memcpy(void *dest, const void *src, size_t size)
 	char	*temp_dest;
 	char	*temp_src;
 
+	if (size == 0 || dest == src)
+		return (dest);
+	if (!dest && !src)
+		return (0);
 	temp_src = (char *)src;
 	temp_dest = (char *)dest;
-	if (size == 0 || dest == 0)
-		return (0);
-	while (size-- > 0)
-	{
-		*temp_dest++ = *temp_src++;
-	}
+	while (size--)
+		temp_dest[size] = temp_src[size];
 	return (dest);
 }

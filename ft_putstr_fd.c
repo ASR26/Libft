@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/22 08:54:26 by asolano-          #+#    #+#             */
-/*   Updated: 2022/04/27 10:07:55 by asolano-         ###   ########.fr       */
+/*   Created: 2022/04/27 11:18:44 by asolano-          #+#    #+#             */
+/*   Updated: 2022/04/28 12:58:17 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*Esta función aloja de forma contigua espacio para count objetos que son size 
- * bytes de memoria y devuelve un puntero a la memoria alojada, esta memoria se
- * llena con bytes de valor 0*/
 #include"libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void	ft_putstr_fd(char *s, int fd)
 {
-	void	*ptr;
+	int	i;
 
-	ptr = malloc(count * size);
-	if (!ptr)
-		return (0);
-	ft_bzero(ptr, count * size);
-	return (ptr);
+	i = 0;
+	if (s != 0)
+		while (s[i])
+			write(fd, &s[i++], 1);
 }

@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/22 08:54:26 by asolano-          #+#    #+#             */
-/*   Updated: 2022/04/27 10:07:55 by asolano-         ###   ########.fr       */
+/*   Created: 2022/04/29 09:22:57 by asolano-          #+#    #+#             */
+/*   Updated: 2022/04/29 09:34:20 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*Esta función aloja de forma contigua espacio para count objetos que son size 
- * bytes de memoria y devuelve un puntero a la memoria alojada, esta memoria se
- * llena con bytes de valor 0*/
 #include"libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	void	*ptr;
+	t_list	*newlist;
+	t_list	*node;
 
-	ptr = malloc(count * size);
-	if (!ptr)
+	if (lst == 0)
 		return (0);
-	ft_bzero(ptr, count * size);
-	return (ptr);
+	newlist = ft_lstnew(f(lst->content));
+	if (newlist == 0)
+		return (0);
+	node = newlist;
+	while (lst->next)
+	{
+		node->next = ft_lstnew(f(lst->content));
+		if (node->next == 0)
+		{
+			ft_lstclear(&newlist, del);
+			return (0);
+		}
+		node = node->next;
+		lst = lst->next;
+	}
+	return (newlist);
 }

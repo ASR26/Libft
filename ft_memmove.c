@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/19 10:34:35 by asolano-          #+#    #+#             */
-/*   Updated: 2022/04/21 12:32:34 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/04/27 09:01:26 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	*ft_memmove(void *dest, const void *src, size_t len)
 	char	*ret;
 
 	ret = (char *)dest;
+	if (dest == src)
+		return (ret);
 	if (src < dest)
 	{
 		while (len--)

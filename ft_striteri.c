@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/26 13:14:13 by asolano-          #+#    #+#             */
-/*   Updated: 2022/04/27 10:42:33 by asolano-         ###   ########.fr       */
+/*   Created: 2022/04/27 10:56:09 by asolano-          #+#    #+#             */
+/*   Updated: 2022/04/28 12:58:43 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Esta función aplica la función f dada como parámetro a cada caracter de la 
- * string s, genera una nueva string con el resultado de usar la función*/
-#include"libft.h"
+/* Esta función aplica la función f a cada caracter de s, dando como parámetros 
+ * el indice de cada caracter y su dirección, que podrá modificarse*/
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	unsigned int	i;
-	char			*str;
 
+	if (!s || !(*s) || !f)
+		return (0);
 	i = 0;
-	if (!s || (!s && !f))
-		return (ft_strdup(""));
-	else if (!f)
-		return (ft_strdup(s));
-	str = ft_strdup(s);
-	if (!str)
-		return (str = 0);
 	while (s[i])
 	{
-		str[i] = (*f)(i, s[i]);
-		i++;
+		f(i, &s[i]);
+		++i;
 	}
-	return (str);
 }
