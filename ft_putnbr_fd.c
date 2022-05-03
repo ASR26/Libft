@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:44:17 by asolano-          #+#    #+#             */
-/*   Updated: 2022/04/27 12:15:45 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/05/03 10:43:19 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_putnbr_fd(int n, int fd)
 		copia = (copia * -1);
 		write(fd, "-", 1);
 	}
-	if (copia > 0)
+	if (copia > 10)
 	{
 		ft_putnbr_fd(copia / 10, fd);
 		ft_putchar_fd((copia % 10) + '0', fd);
