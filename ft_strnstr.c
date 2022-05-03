@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 11:17:42 by asolano-          #+#    #+#             */
-/*   Updated: 2022/04/25 11:05:25 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/05/03 11:47:55 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,24 +38,19 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t loc)
 */
 char	*ft_strnstr(const char *haystack, const char *needle, size_t loc)
 {
-	size_t	j;
-	size_t	i;
-	size_t	length;
-	char	*hay;
+	unsigned int	len_ndl;
+	unsigned int	i;
 
-	hay = (char *)haystack;
-	length = ft_strlen(needle);
+	len_ndl = ft_strlen(needle);
+	if (len_ndl == 0)
+		return ((char *) haystack);
+	if (len == 0)
+		return (0);
 	i = 0;
-	if (length == 0 || haystack == needle)
-		return (hay);
-	while (hay[i] != '\0' && i < loc)
+	while (haystack[i] && i <= (len - len_ndl))
 	{
-		j = 0;
-		while (hay[i + j] == needle[j] && needle[i] != '\0'
-			&& hay[i + j] != '\0' && i + j < loc)
-			j++;
-		if (j == length)
-			return (hay + i);
+		if (!ft_strncmp(&haystack[i], needle, len_ndl))
+			return ((char *) &haystack[i]);
 		i++;
 	}
 	return (0);
