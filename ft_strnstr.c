@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 11:17:42 by asolano-          #+#    #+#             */
-/*   Updated: 2022/05/03 11:47:55 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/05/04 10:10:16 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t loc)
 	return (0);
 }
 */
-char	*ft_strnstr(const char *haystack, const char *needle, size_t loc)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	unsigned int	len_ndl;
 	unsigned int	i;
