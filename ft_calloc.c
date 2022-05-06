@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 08:54:26 by asolano-          #+#    #+#             */
-/*   Updated: 2022/04/27 10:07:55 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/05/06 10:04:05 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,16 @@
 
 void	*ft_calloc(size_t count, size_t size)
 {
-	void	*ptr;
+	char	*ptr;
+	size_t	i;
 
-	ptr = malloc(count * size);
-	if (!ptr)
+	if (count + size < count || count + size < size)
 		return (0);
-	ft_bzero(ptr, count * size);
-	return (ptr);
+	ptr = (char *) malloc(count * size);
+	if (ptr == 0)
+		return (0);
+	i = 0;
+	while (i < (count * size))
+		ptr[i++] = 0;
+	return ((void *) ptr);
 }

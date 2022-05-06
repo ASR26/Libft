@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/27 11:44:17 by asolano-          #+#    #+#             */
-/*   Updated: 2022/05/04 10:13:06 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/05/06 10:23:00 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	long int	copia;
+	long	num;
 
-	copia = n;
-	if (copia < 0)
+	num = n;
+	if (num < 0)
 	{
 		ft_putchar_fd('-', fd);
-		copia = -copia;
+		num = -num;
 	}
-	if (copia > 10)
-	{
-		ft_putnbr_fd(copia / 10, fd);
-		ft_putchar_fd((copia % 10) + '0', fd);
-	}
+	if (num < 10)
+		ft_putchar_fd((char)(num + '0'), fd);
 	else
-		ft_putchar_fd(copia + '0', fd);
+	{
+		ft_putnbr_fd((int)(num / 10), fd);
+		ft_putchar_fd((char)(num % 10 + '0'), fd);
+	}
 }

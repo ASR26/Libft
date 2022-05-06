@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 08:42:45 by asolano-          #+#    #+#             */
-/*   Updated: 2022/04/21 12:33:21 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/05/06 10:01:32 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,16 @@
  * caracter si lo encuentra o 0 si no lo encuentra*/
 char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	char	*ptr;
 
-	i = 0;
-	while (s[i])
+	ptr = (char *)s;
+	while (*ptr)
 	{
-		if (s[i] == c)
-			return ((char *)s + i);
-		i++;
+		if (*ptr == (char) c)
+			return (ptr);
+		ptr++;
 	}
-	if (s[i] == c)
-		return ((char *)s + i);
+	if (*ptr == (char) c)
+		return (ptr);
 	return (0);
 }
