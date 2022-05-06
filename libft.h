@@ -6,7 +6,7 @@
 /*   By: asolano- <asolano-@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 09:06:02 by asolano-          #+#    #+#             */
-/*   Updated: 2022/04/29 09:33:16 by asolano-         ###   ########.fr       */
+/*   Updated: 2022/05/06 09:46:55 by asolano-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lt, void *(*f)(void *), void (*del)(void *));
+void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 #endif
